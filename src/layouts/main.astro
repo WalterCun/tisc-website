@@ -1,0 +1,34 @@
+---
+import '../styles/global.css';
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+const {title, description, lang = "es"} = Astro.props;
+
+const title_final = title || "TISC - Empresa de Desarrollo de Software";
+const description_final = description || "Descripción predeterminada de la página.";
+---
+
+<html lang={lang}>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="description" content={description_final}/>
+    <meta name="keywords" content="desarrollo web, software, tecnología, empresa de software, servicios IT"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content={title_final}/>
+    <meta property="og:description" content={description_final}/>
+    <meta property="og:image" content="/path-to-image.jpg"/> <!-- Cambia la URL a una imagen representativa -->
+    <meta property="og:url" content="https://tisc.com"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@TuTwitter"/> <!-- Si tienes una cuenta en Twitter -->
+    <title>{title_final}</title>
+</head>
+<body class="flex flex-col min-h-screen">
+<Navbar />
+<main class="flex-1">
+    <slot />
+</main>
+<Footer />
+</body>
+</html>
